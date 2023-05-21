@@ -1,0 +1,123 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'JelleeBold';
+    font-weight: normal;
+    font-style: normal;
+    color: white;
+}
+
+body {
+    height: 100vh;
+    width: 100vw;
+    background-color: #2e3239;
+    display: grid;
+    grid-template-rows: 1fr 4fr;
+}
+
+.header {
+    display: grid;
+    padding-bottom: 10px;
+    grid-template-columns: 1fr 2fr 1fr;
+    background-color: #26292b;
+    align-items: center;
+    justify-items: center;
+    box-shadow: 8px 8px 12px #181818;
+}
+
+
+
+.credit {
+    align-self: end;
+}
+
+.welcome-message {
+    letter-spacing: 1px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.div1 {
+    font-size: 3rem;
+}
+
+.div2 {
+    font-size: 2.25rem;
+}
+
+.button {
+    font-size: 1.5rem;
+    border-radius: 10px;
+    background-color: #a2b2ee;
+    border: none;
+    height: 80px;
+    width: 240px;
+}
+
+.main {
+    display: grid;
+    gap: 50px;
+    margin: 50px;
+    grid-template-columns: repeat(auto-fit, minmax(450px, 30%));
+    grid-template-rows: repeat(auto-fit, minmax(250px, 1fr));
+}   
+
+.title-div,
+.author-div,
+.pages-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.book-containers {
+    padding: 35px;
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr;
+    justify-items: center;
+    border-radius: 20px;
+    background-color: #5f7adb;
+    min-height: 250px;
+}
+
+.title-div {
+    grid-row: 1;
+    grid-column: 1 / -1;
+}
+
+.author-div {
+    grid-row: 2;
+}
+
+.pages-div {
+    grid-row: 3;
+}
+
+.read-or-not {
+    grid-row: 4;
+}
+
+.delete {
+    grid-row: 1;
+    grid-column: 1;
+    justify-self: end;
+    width: 40px;
+    height: 40px;
+    border: none;
+    border-radius: 10px;
+    background-color: rgb(211, 88, 88);
+}
+
+.read-or-not {
+    border: none;
+    border-radius: 15px;
+    width: 200px;
+    font-size: 1rem;
+    background-color: rgb(211, 88, 88);
+}
+
+.read {
+    background-color: rgb(29, 163, 85);
+}
