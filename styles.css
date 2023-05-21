@@ -82,15 +82,10 @@ body {
     min-height: 250px;
 }
 
-.title-div,
-.author-div,
-.pages-div {
-    gap: 30px;
-}
-
 .title,
 .author,
 .pages {
+    margin-bottom: 15%;
     color: #1f355a;
 }
 
