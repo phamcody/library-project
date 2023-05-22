@@ -59,6 +59,7 @@ body {
     display: grid;
     gap: 50px;
     margin: 50px;
+    justify-content: center;
     grid-template-columns: repeat(auto-fit, minmax(450px, calc((1/3) * (100vw - 200px) )));
     grid-template-rows: repeat(auto-fit, minmax(250px, 1fr));
 }   
@@ -81,6 +82,7 @@ body {
     background-color: #5f7adb;
     min-height: 250px;
 }
+
 
 .title,
 .author,
@@ -134,4 +136,58 @@ body {
 
 .read {
     background-color: rgb(29, 163, 85);
+}
+
+/* FORM */
+
+.form-outside-container {
+    display: grid;
+}
+
+.form-outside-container p {
+    font-size: 1.7rem;
+    text-align: center;
+    gap: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+.form-outside-container .container {
+    margin-top: 20px;
+    display: flex;
+    gap: 10px;
+}
+
+.form-outside-container input {
+    text-align: center;
+    height: 30px;
+    width: 200px;
+    border-radius: 10px;
+    background-color: #3d3f46;
+}
+
+.form-outside-container input[type="tel"] {
+    width: 50px;
+}
+
+.form-outside-container .submit {
+    width: 80%;
+    height: 20%;
+    border: none;
+    border-radius: 10px;
+    background-color: #a2b2ee;
+}
+
+.form-outside-container form {
+    border-radius: 10px;
+    box-shadow: 4px 4px 4px #181818;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    background-color: #26292b;
+    height: 100%;
+    width: 90%;
+    align-items: center;
 }
