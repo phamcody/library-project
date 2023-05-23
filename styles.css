@@ -168,7 +168,7 @@ body {
     background-color: #3d3f46;
 }
 
-.form-outside-container input[type="tel"] {
+.form-outside-container input[type="num"] {
     width: 50px;
 }
 
