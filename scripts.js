@@ -15,9 +15,8 @@ let atomic_habits = new Book("Atomic Habits", "James Clear", 24, 250, "No");
 /* Website Code */
 const mainContainer = document.querySelector('.main');
 
-const addBook = document.getElementById('add-button');
+const addBook = document.getElementsByClassName('add-button');
 
-console.log(addBook);
 
 function showForm() {
 
