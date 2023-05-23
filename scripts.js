@@ -10,16 +10,22 @@ function Book(title, author, pages, total, read) {
 
 let atomic_habits = new Book("Atomic Habits", "James Clear", 24, 250, "No"); 
 
+let disableButton = false;
 
 
 /* Website Code */
 const mainContainer = document.querySelector('.main');
 
 let addBook = document.getElementById('add-button');
-console.log(addBook.textContent);
+addBook.addEventListener('click', () => {
+    showForm();
+    disableButton = true;
+})
 
 
 function showForm() {
+
+    if (disableButton === true) return;
 
     const formOutsideContainer= document.createElement('div');
     formOutsideContainer.classList.add('form-outside-container');
@@ -69,12 +75,14 @@ function showForm() {
     titleInput.setAttribute('type', 'text');
     titleInput.setAttribute('name', 'book_title');
     titleInput.setAttribute('id', 'book_title');
+    titleInput.setAttribute('required', 'true');
     pOne.appendChild(titleInput);
 
     const authorInput = document.createElement('input');
     authorInput.setAttribute('type', 'text');
     authorInput.setAttribute('name', 'book_author');
     authorInput.setAttribute('id', 'book_author');
+    authorInput.setAttribute('required', 'true');
     pTwo.appendChild(authorInput);
 
     const pThreeContainer = document.createElement('div');
@@ -83,9 +91,11 @@ function showForm() {
     formThreeP.appendChild(pThreeContainer);
 
     const pagesInput = document.createElement('input');
-    pagesInput.setAttribute('type', 'num');
+    pagesInput.setAttribute('type', 'number');
     pagesInput.setAttribute('name', 'read_pages');
     pagesInput.setAttribute('id', 'book_pages');
+    pagesInput.setAttribute('required', 'true');
+    pagesInput.setAttribute('pattern', '[0-999]');
     pThreeContainer.appendChild(pagesInput);
 
     const slash = document.createElement('p');
@@ -93,9 +103,11 @@ function showForm() {
     pThreeContainer.appendChild(slash);
 
     const totalInput = document.createElement('input');
-    totalInput.setAttribute('type', 'num');
+    totalInput.setAttribute('type', 'number');
     totalInput.setAttribute('name', 'total_pages');
     totalInput.setAttribute('id', 'book_pages');
+    totalInput.setAttribute('required', 'true');
+    totalInput.setAttribute('pattern', '[0-999]');
     pThreeContainer.appendChild(totalInput);
 
     const submitButton = document.createElement('button');
@@ -104,4 +116,10 @@ function showForm() {
 
     form.appendChild(submitButton);
 
+    const closeButton = document.createElement('button');
+    closeButton.classList.add('delete');
+    closeButton.classList.add('stretch');
+    closeButton.textContent = 'X';
+
+    form.appendChild(closeButton);
 }

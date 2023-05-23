@@ -168,7 +168,7 @@ body {
     background-color: #3d3f46;
 }
 
-.form-outside-container input[type="num"] {
+.form-outside-container input[type="number"] {
     width: 50px;
 }
 
@@ -190,4 +190,9 @@ body {
     height: 100%;
     width: 90%;
     align-items: center;
+}
+
+.stretch {
+    width: 80%;
+    height: 10%;
 }
