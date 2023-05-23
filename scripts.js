@@ -20,8 +20,10 @@ let addBook = document.getElementById('add-button');
 addBook.addEventListener('click', () => {
     showForm();
     disableButton = true;
+    console.log(disableButton);
 })
 
+/* FUNCTIONS */
 
 function showForm() {
 
@@ -122,4 +124,9 @@ function showForm() {
     closeButton.textContent = 'X';
 
     form.appendChild(closeButton);
+
+    closeButton.addEventListener('click', () => {
+        disableButton = false;
+        mainContainer.removeChild(formOutsideContainer);
+    })
 }
