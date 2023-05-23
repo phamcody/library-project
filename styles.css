@@ -79,7 +79,7 @@ body {
     grid-template-columns: 1fr;
     justify-items: center;
     border-radius: 20px;
-    background-color: #5f7adb;
+    background-color: #26292b;
     min-height: 250px;
 }
 
@@ -88,7 +88,7 @@ body {
 .author,
 .pages {
     margin-bottom: 15%;
-    color: #1f355a;
+    color: #a2b2ee;
 }
 
 .u-title,
