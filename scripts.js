@@ -23,7 +23,73 @@ addBook.addEventListener('click', () => {
     console.log(disableButton);
 })
 
+createCards();
+
+
+
 /* FUNCTIONS */
+
+
+
+function createCards() {
+
+    const bookContainer = document.createElement('div');
+    bookContainer.classList.add('book-containers');
+    mainContainer.appendChild(bookContainer);
+
+    const titleDiv = document.createElement('div');
+    titleDiv.classList.add('title-div');
+    bookContainer.appendChild(titleDiv);
+
+    const title = document.createElement('div');
+    title.classList.add('title');
+    title.textContent = 'title'
+    const uTitle = document.createElement('div');
+    uTitle.classList.add('u-title');
+    uTitle.textContent = 'Atomic Habits';
+
+    titleDiv.appendChild(title);
+    titleDiv.appendChild(uTitle);
+
+    const authorDiv = document.createElement('div');
+    authorDiv.classList.add('author-div');
+    bookContainer.appendChild(authorDiv);
+
+    const author = document.createElement('div');
+    author.classList.add('author');
+    author.textContent = 'author';
+    authorDiv.appendChild(author);
+
+    const uAuthor = document.createElement('div');
+    uAuthor.classList.add('u-author');
+    uAuthor.textContent = 'James Clear';
+    authorDiv.appendChild(uAuthor);
+
+    const pagesDiv = document.createElement('div');
+    pagesDiv.classList.add('pages-div');
+    bookContainer.appendChild(pagesDiv);
+
+    const pages = document.createElement('div');
+    pages.classList.add('pages');
+    pages.textContent = 'pages';
+    pagesDiv.appendChild(pages);
+
+    const uPages = document.createElement('div');
+    uPages.classList.add('u-pages');
+    uPages.textContent = '247';
+    pagesDiv.appendChild(uPages);
+
+    const readButton = document.createElement('button');
+    readButton.classList.add('read-or-not');
+    readButton.textContent = 'unfinished';
+    bookContainer.appendChild(readButton);
+
+    const bookDelete = document.createElement('button');
+    bookDelete.textContent = 'X';
+    bookDelete.classList.add('delete');
+    bookContainer.appendChild(bookDelete);
+
+}
 
 function showForm() {
 
