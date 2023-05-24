@@ -25,8 +25,6 @@ addBook.addEventListener('click', () => {
 
 createCards();
 
-
-
 /* FUNCTIONS */
 
 
@@ -74,20 +72,56 @@ function createCards() {
     pages.textContent = 'pages';
     pagesDiv.appendChild(pages);
 
+    const pageContainer = document.createElement('div');
+    pageContainer.classList.add('container');
+    pagesDiv.appendChild(pageContainer);
+
     const uPages = document.createElement('div');
     uPages.classList.add('u-pages');
-    uPages.textContent = '247';
-    pagesDiv.appendChild(uPages);
+    uPages.textContent = '243';
+    pageContainer.appendChild(uPages);
+
+    const uParagraph = document.createElement('div');
+    uParagraph.textContent = '/';
+    pageContainer.appendChild(uParagraph);
+
+    const uPagesTotal = document.createElement('div');
+    uPagesTotal.classList.add('u-pages');
+    uPagesTotal.textContent = '253';
+    pageContainer.appendChild(uPagesTotal);
+
 
     const readButton = document.createElement('button');
     readButton.classList.add('read-or-not');
     readButton.textContent = 'unfinished';
     bookContainer.appendChild(readButton);
+    
+    readButton.addEventListener('click', () => {
+        if (readButton.textContent === 'unfinished') {
+            readButton.classList.add('read');
+            readButton.textContent = 'read';
+            uPages.textContent = uPagesTotal.textContent;
+        }
+        else {
+            readButton.classList.remove('read');
+            readButton.textContent = 'unfinished';
+        }
+    })
 
     const bookDelete = document.createElement('button');
     bookDelete.textContent = 'X';
     bookDelete.classList.add('delete');
     bookContainer.appendChild(bookDelete);
+
+    bookDelete.addEventListener('click', () => {
+        mainContainer.removeChild(bookContainer);
+    })
+
+
+    if (uPages.textContent === uPagesTotal.textContent) {
+        readButton.classList.add('read');
+        readButton.textContent = 'read';
+    }
 
 }
 
@@ -195,4 +229,7 @@ function showForm() {
         disableButton = false;
         mainContainer.removeChild(formOutsideContainer);
     })
+
+
+
 }

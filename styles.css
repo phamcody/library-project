@@ -80,6 +80,7 @@ body {
     justify-items: center;
     border-radius: 20px;
     background-color: #26292b;
+    box-shadow: 4px 4px 4px #181818;
     min-height: 250px;
 }
 
@@ -136,6 +137,12 @@ body {
 
 .read {
     background-color: rgb(29, 163, 85);
+}
+
+.book-containers .container {
+    display: flex;
+    font-size: 1.7rem;
+    gap: 10px;
 }
 
 /* FORM */
