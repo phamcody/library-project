@@ -179,7 +179,7 @@ body {
     width: 50px;
 }
 
-.form-outside-container .submit {
+.form-outside-container #submit {
     width: 80%;
     height: 20%;
     border: none;

@@ -8,28 +8,17 @@ function Book(title, author, pages, total, read) {
     this.read = read;
 }
 
-let atomic_habits = new Book("Atomic Habits", "James Clear", 24, 250, "No"); 
+function addBookToLibrary(books) {
+    myLibrary.push(books);
+} 
 
 let disableButton = false;
-
-
-/* Website Code */
-const mainContainer = document.querySelector('.main');
-
-let addBook = document.getElementById('add-button');
-addBook.addEventListener('click', () => {
-    showForm();
-    disableButton = true;
-    console.log(disableButton);
-})
-
-createCards();
 
 /* FUNCTIONS */
 
 
 
-function createCards() {
+function createCards(titleInputted, authorInputted, pagesInputted, totalInputted, readInputted) {
 
     const bookContainer = document.createElement('div');
     bookContainer.classList.add('book-containers');
@@ -44,7 +33,7 @@ function createCards() {
     title.textContent = 'title'
     const uTitle = document.createElement('div');
     uTitle.classList.add('u-title');
-    uTitle.textContent = 'Atomic Habits';
+    uTitle.textContent = titleInputted;
 
     titleDiv.appendChild(title);
     titleDiv.appendChild(uTitle);
@@ -60,7 +49,7 @@ function createCards() {
 
     const uAuthor = document.createElement('div');
     uAuthor.classList.add('u-author');
-    uAuthor.textContent = 'James Clear';
+    uAuthor.textContent = authorInputted;
     authorDiv.appendChild(uAuthor);
 
     const pagesDiv = document.createElement('div');
@@ -78,7 +67,7 @@ function createCards() {
 
     const uPages = document.createElement('div');
     uPages.classList.add('u-pages');
-    uPages.textContent = '243';
+    uPages.textContent = pagesInputted;
     pageContainer.appendChild(uPages);
 
     const uParagraph = document.createElement('div');
@@ -87,13 +76,13 @@ function createCards() {
 
     const uPagesTotal = document.createElement('div');
     uPagesTotal.classList.add('u-pages');
-    uPagesTotal.textContent = '253';
+    uPagesTotal.textContent = totalInputted;
     pageContainer.appendChild(uPagesTotal);
 
 
     const readButton = document.createElement('button');
     readButton.classList.add('read-or-not');
-    readButton.textContent = 'unfinished';
+    readButton.textContent = readInputted;
     bookContainer.appendChild(readButton);
     
     readButton.addEventListener('click', () => {
@@ -131,10 +120,12 @@ function showForm() {
 
     const formOutsideContainer= document.createElement('div');
     formOutsideContainer.classList.add('form-outside-container');
+    formOutsideContainer.setAttribute('id', 'form-outside-container');
     mainContainer.appendChild(formOutsideContainer);
 
 
     const form = document.createElement('form');
+    form.setAttribute('onsubmit', 'return false;');
     formOutsideContainer.appendChild(form);
 
     const formContainerOne = document.createElement('div');
@@ -213,7 +204,7 @@ function showForm() {
     pThreeContainer.appendChild(totalInput);
 
     const submitButton = document.createElement('button');
-    submitButton.setAttribute('class', 'submit');
+    submitButton.setAttribute('id', 'submit');
     submitButton.textContent = 'ADD';
 
     form.appendChild(submitButton);
@@ -223,6 +214,8 @@ function showForm() {
     closeButton.classList.add('stretch');
     closeButton.textContent = 'X';
 
+    /* Seperate */
+
     form.appendChild(closeButton);
 
     closeButton.addEventListener('click', () => {
@@ -230,6 +223,54 @@ function showForm() {
         mainContainer.removeChild(formOutsideContainer);
     })
 
+    const buttonSubmit = document.getElementById('submit');
+    if (buttonSubmit) {
+        buttonSubmit.addEventListener('click', () => {
+            let chooseTitle = document.getElementById('book_title');
+            let chooseAuthor = document.getElementById('book_author');
+            let choosePage = document.querySelector('[name="read_pages"]');
+            let chooseTotal = document.querySelector('[name="total_pages"]');
+            let chooseRead = 'unfinished';
+    
+            if (
+                chooseTitle.value === ''||
+                chooseAuthor.value === ''||
+                choosePage.value === ''||
+                chooseTotal.value === ''
+            ) return;
+    
+            else {
+                if (choosePage.value === chooseTotal.value) chooseRead = 'read';
+            
+                let submitBook = new Book(chooseTitle.value, chooseAuthor.value, choosePage.value, chooseTotal.value, chooseRead);
+                addBookToLibrary(submitBook);
+                console.log(myLibrary);
+                createCards(myLibrary[0].title, myLibrary[0].author, myLibrary[0].pages, myLibrary[0].total, myLibrary[0].read);
+                disableButton = false;
+
+                mainContainer.removeChild(formOutsideContainer);
+            }
+        })
+    }
 
 
-}
+};
+
+/* WEBSITE */
+
+const mainContainer = document.querySelector('.main');
+
+const addBook = document.getElementById('add-button');
+addBook.addEventListener('click', () => {
+    showForm();
+    disableButton = true;
+    console.log(disableButton);
+})
+
+
+
+
+
+
+
+
