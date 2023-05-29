@@ -13,6 +13,7 @@ function addBookToLibrary(books) {
 } 
 
 let disableButton = false;
+let addSubmitCount = 0;
 
 /* FUNCTIONS */
 
@@ -240,14 +241,17 @@ function showForm() {
             ) return;
     
             else {
+                
                 if (choosePage.value === chooseTotal.value) chooseRead = 'read';
             
                 let submitBook = new Book(chooseTitle.value, chooseAuthor.value, choosePage.value, chooseTotal.value, chooseRead);
                 addBookToLibrary(submitBook);
                 console.log(myLibrary);
-                createCards(myLibrary[0].title, myLibrary[0].author, myLibrary[0].pages, myLibrary[0].total, myLibrary[0].read);
+
+                createCards(myLibrary[addSubmitCount].title, myLibrary[addSubmitCount].author, myLibrary[addSubmitCount].pages, myLibrary[addSubmitCount].total, myLibrary[addSubmitCount].read);
                 disableButton = false;
 
+                addSubmitCount += 1;
                 mainContainer.removeChild(formOutsideContainer);
             }
         })
@@ -264,7 +268,6 @@ const addBook = document.getElementById('add-button');
 addBook.addEventListener('click', () => {
     showForm();
     disableButton = true;
-    console.log(disableButton);
 })
 
 
