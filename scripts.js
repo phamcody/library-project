@@ -1,11 +1,12 @@
 let myLibrary = [];
 
-function Book(title, author, pages, total, read) {
+function Book(title, author, pages, total, read, index) {
     this.title = title;
     this.author = author;
     this.pages = pages;
     this.total = total;
     this.read = read;
+    this.index = index;
 }
 
 function addBookToLibrary(books) {
@@ -232,6 +233,7 @@ function showForm() {
             let choosePage = document.querySelector('[name="read_pages"]');
             let chooseTotal = document.querySelector('[name="total_pages"]');
             let chooseRead = 'unfinished';
+            let index = addSubmitCount;
     
             if (
                 chooseTitle.value === ''||
@@ -244,14 +246,15 @@ function showForm() {
                 
                 if (choosePage.value === chooseTotal.value) chooseRead = 'read';
             
-                let submitBook = new Book(chooseTitle.value, chooseAuthor.value, choosePage.value, chooseTotal.value, chooseRead);
+                let submitBook = new Book(chooseTitle.value, chooseAuthor.value, choosePage.value, chooseTotal.value, chooseRead, index);
                 addBookToLibrary(submitBook);
                 console.log(myLibrary);
 
-                createCards(myLibrary[addSubmitCount].title, myLibrary[addSubmitCount].author, myLibrary[addSubmitCount].pages, myLibrary[addSubmitCount].total, myLibrary[addSubmitCount].read);
+                createCards(myLibrary[addSubmitCount].title, myLibrary[addSubmitCount].author, myLibrary[addSubmitCount].pages, myLibrary[addSubmitCount].total, myLibrary[addSubmitCount].read, myLibrary[addSubmitCount.index]);
                 disableButton = false;
 
                 addSubmitCount += 1;
+                console.log(myLibrary);
                 mainContainer.removeChild(formOutsideContainer);
             }
         })
