@@ -102,9 +102,16 @@ function createCards(titleInputted, authorInputted, pagesInputted, totalInputted
     const bookDelete = document.createElement('button');
     bookDelete.textContent = 'X';
     bookDelete.classList.add('delete');
+    bookDelete.setAttribute('id', titleInputted);
     bookContainer.appendChild(bookDelete);
 
-    bookDelete.addEventListener('click', () => {
+    bookDelete.addEventListener('click', (e) => {
+        for (let i = 0; i < myLibrary.length; i++) {
+            if (myLibrary[i].title === e.target.id) {
+                myLibrary.splice(i, 1);
+            }
+        }
+        console.log(myLibrary);
         mainContainer.removeChild(bookContainer);
     })
 
@@ -227,7 +234,7 @@ function showForm() {
 
     const buttonSubmit = document.getElementById('submit');
     if (buttonSubmit) {
-        buttonSubmit.addEventListener('click', () => {
+        buttonSubmit.addEventListener('click', (e) => {
             let chooseTitle = document.getElementById('book_title');
             let chooseAuthor = document.getElementById('book_author');
             let choosePage = document.querySelector('[name="read_pages"]');
@@ -248,12 +255,11 @@ function showForm() {
             
                 let submitBook = new Book(chooseTitle.value, chooseAuthor.value, choosePage.value, chooseTotal.value, chooseRead, index);
                 addBookToLibrary(submitBook);
-                console.log(myLibrary);
 
-                createCards(myLibrary[addSubmitCount].title, myLibrary[addSubmitCount].author, myLibrary[addSubmitCount].pages, myLibrary[addSubmitCount].total, myLibrary[addSubmitCount].read, myLibrary[addSubmitCount.index]);
+                
+                createCards(chooseTitle.value, chooseAuthor.value, choosePage.value, chooseTotal.value, chooseRead, index);
                 disableButton = false;
 
-                addSubmitCount += 1;
                 console.log(myLibrary);
                 mainContainer.removeChild(formOutsideContainer);
             }
@@ -264,6 +270,13 @@ function showForm() {
 };
 
 /* WEBSITE */
+
+/* 
+
+myLibrary [book book book book] -1
+myLibrary.length - myLibrary.length + 1
+
+*/
 
 const mainContainer = document.querySelector('.main');
 
