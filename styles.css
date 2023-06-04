@@ -13,6 +13,7 @@ body {
     background-color: #2e3239;
     display: grid;
     grid-template-rows: 1fr 4fr;
+    overflow-y: auto;
 }
 
 .header {
@@ -61,7 +62,6 @@ body {
     margin: 50px;
     justify-content: center;
     grid-template-columns: repeat(auto-fit, minmax(450px, calc((1/3) * (100vw - 200px) )));
-    grid-template-rows: repeat(auto-fit, minmax(250px, 1fr));
 }   
 
 .title-div,
@@ -82,6 +82,7 @@ body {
     background-color: #26292b;
     box-shadow: 4px 4px 4px #181818;
     min-height: 250px;
+    height: 90%;
 }
 
 
@@ -194,8 +195,9 @@ body {
     flex-direction: column;
     justify-content: space-around;
     background-color: #26292b;
-    height: 100%;
-    width: 90%;
+    height: 450px;
+    width: 100%;
+    padding: 20px 0px;
     align-items: center;
 }
 
